@@ -1,0 +1,4 @@
+{"_id" : 001, "name" : "Earth", "class" : "M", "organizations" : [{"_id" : "A", "relationship" : "MEMBER"},{"_id" : "B", "relationship" : "FOUNDER"},{"_id" : "C", "relationship" : "MEMBER"}]}
+{"_id" : 002, "name" : "Vulcan", "class" : "M", "organizations" : [{"_id" : "A", "relationship" : "MEMBER"},{"_id" : "C", "relationship" : "MEMBER"}]}
+{"_id" : 003, "name" : "Qo'noS", "class" : "M", "organizations" : [{"_id" : "D", "relationship" : "FOUNDER"}]}
+{"_id" : 004, "name" : "Bajor", "class" : "M", "organizations" : [{"_id" : "A", "relationship" : "ALLY"},{"_id" : "E", "relationship" : "FOUNDER"}]}

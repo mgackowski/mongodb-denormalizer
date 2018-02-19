@@ -1,0 +1,8 @@
+{"_id" : 991, "planet_id" : 001, "organization_id" : "A", "relationship" : "MEMBER"}
+{"_id" : 992, "planet_id" : 001, "organization_id" : "B", "relationship" : "FOUNDER"}
+{"_id" : 993, "planet_id" : 001, "organization_id" : "C", "relationship" : "MEMBER"}
+{"_id" : 994, "planet_id" : 002, "organization_id" : "A", "relationship" : "MEMBER"}
+{"_id" : 995, "planet_id" : 002, "organization_id" : "C", "relationship" : "MEMBER"}
+{"_id" : 996, "planet_id" : 003, "organization_id" : "D", "relationship" : "FOUNDER"}
+{"_id" : 997, "planet_id" : 004, "organization_id" : "A", "relationship" : "ALLY"}
+{"_id" : 998, "planet_id" : 004, "organization_id" : "E", "relationship" : "FOUNDER"}

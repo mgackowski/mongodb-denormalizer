@@ -1,0 +1,5 @@
+{"_id" : "A", "name" : "United Federation of Planets", "planets":[001,002,004]}
+{"_id" : "B", "name" : "United Earth", "planets":[001]}
+{"_id" : "C", "name" : "Coalition of Planets", "planets":[001,002]}
+{"_id" : "D", "name" : "Klingon Empire", "planets":[003]}
+{"_id" : "E", "name" : "Bajoran Republic", "planets":[004]}

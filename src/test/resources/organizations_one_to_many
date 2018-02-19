@@ -1,0 +1,5 @@
+{"_id" : "A", "name" : "United Federation of Planets", "affiliations":[991,994,997]}
+{"_id" : "B", "name" : "United Earth", "affiliations":[992]}
+{"_id" : "C", "name" : "Coalition of Planets", "affiliations":[993,995]}
+{"_id" : "D", "name" : "Klingon Empire", "affiliations":[996]}
+{"_id" : "E", "name" : "Bajoran Republic", "affiliations":[998]}

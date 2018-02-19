@@ -1,0 +1,4 @@
+{"_id" : 001, "name" : "Earth", "class" : "M", "moons" : [{"_id" : 1, "name" : "Luna"}] }
+{"_id" : 002, "name" : "Vulcan", "class" : "M" }
+{"_id" : 003, "name" : "Qo'noS", "class" : "M", "moons" : [{"_id" : 2, "name" : "Praxis"}] }
+{"_id" : 004, "name" : "Bajor", "class" : "M", "moons" : [{"_id" : 3, "name" : "Derna"}, {"_id" : 4, "name" : "Jeraddo"}] }

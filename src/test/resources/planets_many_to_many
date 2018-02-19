@@ -1,0 +1,4 @@
+{"_id" : 001, "name" : "Earth", "class" : "M", "organizations" : ["A","B","C"]}
+{"_id" : 002, "name" : "Vulcan", "class" : "M", "organizations" : ["A","C"]}
+{"_id" : 003, "name" : "Qo'noS", "class" : "M", "organizations" : ["D"]}
+{"_id" : 004, "name" : "Bajor", "class" : "M", "organizations" : ["A","E"]}
