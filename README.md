@@ -83,10 +83,10 @@ releases: [	{"_id" : 7, "products" : [1]},
    * as a JAR to use the public API (work in progress), or
    * run the App in the command line (planned feature), or
    * clone it, build with Maven and play around
-		
+
 2. Create a model for your desired change:
-<br>
-   * **a data model using document references** (use case **A**)
+
+**Case (A) – a data model using document references**
 
 ```Java
 DBModel model = new DBModel().add(new CollModel("books")
@@ -95,8 +95,8 @@ DBModel model = new DBModel().add(new CollModel("books")
 		.reference("_id")
 		.as("books")));
 ```
-<br>
-   * **a data model using embedded documents** (use case **B**)
+
+**Case (B) – a data model using embedded documents**
 		
 ```Java
 DBModel model = new DBModel().add(new CollModel("books")
@@ -106,8 +106,8 @@ DBModel model = new DBModel().add(new CollModel("books")
 		.as("books")
 		.embed("name")));	// chain as many .embeds as you like
 ```
-<br>					
-   * **a many-to-many model using document references** (use case **C**)
+					
+**Case (C) – a many-to-many model using document references**
 		
 ```Java
 DBModel model = new DBModel().add(new CollModel("productsreleases")
