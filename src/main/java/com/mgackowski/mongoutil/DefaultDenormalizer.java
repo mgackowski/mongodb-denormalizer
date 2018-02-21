@@ -100,11 +100,13 @@ public class DefaultDenormalizer implements Denormalizer {
 					else {
 						Document referenceObject = new Document("_id", doc.get(sourceLinkColumn));
 						for(String field : fieldsToEmbed) {
+							Object value = doc.get(field);
+							if(value == null) continue;
 							referenceObject.append(field, doc.get(field));
-							targetColl.updateMany(
-									eq(targetKeyName, sourceForeignKeyValue),
-										push(targetNewArrayName, referenceObject));
 						}
+						targetColl.updateMany(
+								eq(targetKeyName, sourceForeignKeyValue),
+									push(targetNewArrayName, referenceObject));
 					}
 				}
 				LOG.info("Done – array {} in {} is referencing {} documents by {}",

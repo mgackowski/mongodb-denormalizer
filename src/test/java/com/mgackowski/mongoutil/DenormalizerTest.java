@@ -87,7 +87,7 @@ public class DenormalizerTest {
 	}
 	
 	@Test
-	public void denormalize_acceptsJoinModelWithMandatoryFieldsOnly() {
+	public void denormalize_createsRefs() {
 		
 		DBModel model = new DBModel().add(new CollModel("moons")
 				.join(new JoinModel("planets").on("planet_id", "_id")
@@ -99,7 +99,7 @@ public class DenormalizerTest {
 	}
 	
 	@Test
-	public void denormalize_acceptsModelWithAllFields() {
+	public void denormalize_createsEmbeds() {
 		DBModel model = new DBModel().add(new CollModel("moons")
 				.join(new JoinModel("planets").on("planet_id", "_id")
 						.as("moons").reference("_id").embed("name")));
@@ -107,6 +107,19 @@ public class DenormalizerTest {
 		assertTrue(subject.denormalize(model));
 	
 		assertEquals(getJsonListFromFile("planets_embed"),
+				getJsonListOfColl("planets"));
+	}
+	
+	@Test
+	public void denormalize_createsMultipleEmbeds() {
+		DBModel model = new DBModel().add(new CollModel("moons")
+				.join(new JoinModel("planets").on("planet_id", "_id")
+						.as("moons").reference("_id")
+						.embed("name").embed("native")));
+		
+		assertTrue(subject.denormalize(model));
+	
+		assertEquals(getJsonListFromFile("planets_embed_multi"),
 				getJsonListOfColl("planets"));
 	}
 	
