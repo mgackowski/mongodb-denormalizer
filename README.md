@@ -80,7 +80,7 @@ releases: [	{"_id" : 7, "products" : [1]},
 ## Usage
 
 1. Import this utility:
-   * as a JAR to use the public API, or
+   * as a [JAR](https://github.com/mgackowski/mongodb-denormalizer/tree/master/target) to use the API, or
    * run the App in the command line (planned feature)
 
 2. Create a model for your desired change:
