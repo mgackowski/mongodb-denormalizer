@@ -80,9 +80,8 @@ releases: [	{"_id" : 7, "products" : [1]},
 ## Usage
 
 1. Import this utility:
-   * as a JAR to use the public API (work in progress), or
-   * run the App in the command line (planned feature), or
-   * clone it, build with Maven and play around
+   * as a JAR to use the public API, or
+   * run the App in the command line (planned feature)
 
 2. Create a model for your desired change:
 
@@ -129,10 +128,9 @@ DBModel model = new DBModel().add(new CollModel("productsreleases")
 MongoClient client = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
 MongoDatabase db = client.getDatabase("mydatabase");
 
-Denormalizer thatsConvenient = new DefaultDenormalizer(db);
-thatsConvenient.denormalize(model);
+DenormalizerFactory.getDenormalizer(db).denormalize(model);
 
-client.close() //remember to close!
+client.close(); //remember to close!
 ```
 		
 Detailed descriptions of all methods in the API are in the [JavaDoc](https://mgackowski.github.io/mongodb-denormalizer/).

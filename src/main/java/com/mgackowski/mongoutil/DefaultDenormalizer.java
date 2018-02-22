@@ -18,15 +18,7 @@ import com.mongodb.client.MongoCursor;
 import com.mongodb.client.MongoDatabase;
 
 /**
- * Transforms relationships between collections modelled after relational
- * databases (foreign keys for one–to–many, link tables for many–to–many) into
- * NoSQL–optimised structures, such as arrays of references to other
- * collections, or arrays of embedded documents.
- * <p>
- * Usage:
- * <ol><li>Instantiate a Denormalizer object.</li><li>Prepare a DBModel to model
- * the desired relationships between collections.</li><li>Call
- * denormalize(DBModel model) to apply changes to a MongoDB database.</li></ol>
+ * An implementation of the {@link Denormalizer} interface.
  * @author mgackowski
  */
 public class DefaultDenormalizer implements Denormalizer {
@@ -41,7 +33,7 @@ public class DefaultDenormalizer implements Denormalizer {
 	 * MongoDB java driver and define their own client.
 	 * @param db the MongoDB Java driver database object
 	 */
-	public DefaultDenormalizer(MongoDatabase db) {
+	protected DefaultDenormalizer(MongoDatabase db) {
 		this.db = db;
 	}
 

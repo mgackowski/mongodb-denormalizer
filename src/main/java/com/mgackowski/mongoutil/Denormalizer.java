@@ -2,6 +2,20 @@ package com.mgackowski.mongoutil;
 
 import com.mgackowski.mongoutil.model.DBModel;
 
+/**
+ * Transforms relationships between collections modelled after relational
+ * databases (foreign keys for one–to–many, link tables for many–to–many) into
+ * NoSQL–optimised structures, such as arrays of references to other
+ * collections, or arrays of embedded documents.
+ * <p>
+ * Usage:
+ * <ol><li>Retrieve a Denormalizer object using a {@link DenormalizerFactory}.
+ * </li><li>Prepare a {@link DBModel} to model the desired relationships between
+ * collections.</li><li>Call {@link #denormalize(DBModel)} to apply changes to a
+ * MongoDB database.</li></ol>
+ * @see DenormalizerFactory
+ * @author mgackowski
+ */
 public interface Denormalizer {
 
 	/**

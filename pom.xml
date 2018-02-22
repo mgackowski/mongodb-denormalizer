@@ -3,16 +3,39 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.mgackowski</groupId>
-	<artifactId>gamelibrary</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<artifactId>mongodb-denormalizer</artifactId>
+	<version>18.2.22</version>
 	<packaging>jar</packaging>
 
-	<name>gamelibrary</name>
+	<name>mongodb-denormalizer</name>
 	<url>http://maven.apache.org</url>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifest>
+							<mainClass>com.mgackowski.mongoutil.cli.App</mainClass>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
 
 	<dependencies>
 		<dependency>
