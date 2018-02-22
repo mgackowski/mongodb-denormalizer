@@ -7,8 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 /**
- * A representation of a MongoDB collection and its desired relationship with
- * other collections.
+ * Models a single MongoDB collection.
  * @author mgackowski
  */
 public class CollModel {

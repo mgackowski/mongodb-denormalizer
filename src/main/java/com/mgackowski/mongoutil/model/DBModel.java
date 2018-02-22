@@ -15,6 +15,7 @@ public class DBModel {
 	
 	private static final Logger LOG = LogManager.getLogger(DBModel.class);
 	
+	private String dbName;
 	private List<CollModel> collections = new ArrayList<>();
 	
 	public DBModel add(CollModel collection){
@@ -24,6 +25,10 @@ public class DBModel {
 	
 	public List<CollModel> getCollections() {
 		return collections;
+	}
+
+	public String getDBName() {
+		return dbName;
 	}
 
 	/**
