@@ -13,7 +13,7 @@ tomcat
 *.dmg
 *.gz
 *.iso
-*.jar
+# *.jar
 *.rar
 *.tar
 *.zip
@@ -23,7 +23,11 @@ tomcat
 *.class
 
 # Maven 
-target/maven-status
+target/maven-status/
+target/maven-archiver/
+target/surefire-reports
+target/classes/
+target/test-classes/
 
 # IntelliJ project files 
 *.iml
