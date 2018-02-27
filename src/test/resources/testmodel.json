@@ -1,0 +1,39 @@
+{
+	"database": "test-db-name",
+	"collections" : [
+		{
+			"name" : "test-source-collection-name-A",
+			"joins" : [
+				{
+					"collection" : "test-target-collection-name-A1",
+					"onSource" : "test-onsource-A",
+					"onTarget" : "test-ontarget-A",
+					"as" : "test-newArrayName-A",
+					"reference" : "test-reference-A",
+					"embed" : ["test-embed-A1", "test-embed-A2", "test-embed-A3"]
+				},
+				{
+					"collection" : "test-target-collection-name-A2",
+					"onSource" : "test-onsource-A2",
+					"onTarget" : "test-ontarget-A2",
+					"as" : "test-newArrayName-A2",
+					"reference" : "test-reference-A2",
+					"embed" : ["test-embed-A4", "test-embed-A5", "test-embed-A6"]
+				}
+			]
+		},
+		{
+			"name" : "test-source-collection-name-B",
+			"joins" : [
+				{
+					"collection" : "test-target-collection-name-B1",
+					"onSource" : "test-onsource-B1",
+					"onTarget" : "test-ontarget-B1",
+					"as" : "test-newArrayName-B1",
+					"reference" : "test-reference-B1",
+					"embed" : ["test-embed-B1", "test-embed-B2", "test-embed-B3"]
+				}
+			]
+		}
+	]
+}

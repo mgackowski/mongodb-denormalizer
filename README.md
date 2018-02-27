@@ -79,9 +79,10 @@ releases: [	{"_id" : 7, "products" : [1]},
 					
 ## Usage
 
-1. Import this utility:
-   * as a [JAR](https://github.com/mgackowski/mongodb-denormalizer/tree/master/target) to use the API, or
-   * run the App in the command line (planned feature)
+### As a dependency in a Java project
+
+1. Import the JAR located in the `target` folder (depends on `mongodb-java-driver`,
+tested on `3.6.2`)
 
 2. Create a model for your desired change:
 
@@ -134,5 +135,35 @@ client.close(); //remember to close!
 ```
 		
 Detailed descriptions of all methods in the API are in the [JavaDoc](https://mgackowski.github.io/mongodb-denormalizer/).
+
+### As a standalone command line application
+
+1. Download the JAR located in the `target` folder
+
+2. Prepare a model of the desired changes in JSON format (analogous to the use
+cases described above). The model should have the following structure:
+
+```JSON
+{
+	"database": "my-db-name",
+	"collections" : [
+		{
+			"name" : "source-collection-name",
+			"joins" : [
+				{
+					"collection:" : "target-collection-name",
+					"onSource" : "foreign_id",
+					"onTarget" : "_id",
+					"as" : "newArrayName",
+					"reference" : "_id",
+					"embed" : ["optionalField", "optionalField", "etc..."]
+				}
+			]
+		}
+	]
+}
+```
+
+3. Run the app: `java -jar mongodb-denormalizer-xx.xx.xx.jar 'my-database-host:port' 'path-to-model.json`
 
 The utility has been tested, still it is strongly recommended that you back up your database.
