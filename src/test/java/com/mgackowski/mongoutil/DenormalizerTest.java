@@ -36,7 +36,6 @@ public class DenormalizerTest {
 	
 	private static String TEST_SERVER = "localhost:27017";
 	private static String TEST_DB_NAME  = "denormalizerTest";
-	private static String TEST_FILE_DIR = "src/test/resources/";
 	private static int MAX_WAIT = 100;
 	
 	private static MongoDatabase db;
@@ -82,7 +81,7 @@ public class DenormalizerTest {
 		DBModel model = new DBModel().add(new CollModel("affiliations"));
 		assertTrue(subject.denormalize(model));
 		
-		assertEquals(getJsonListFromFile("affiliations"),
+		assertEquals(TestUtils.getJsonListFromFile("affiliations"),
 				getJsonListOfColl("affiliations"));
 	}
 	
@@ -94,7 +93,7 @@ public class DenormalizerTest {
 						.as("moons").reference("_id")));
 		assertTrue(subject.denormalize(model));
 		
-		assertEquals(getJsonListFromFile("planets_ref"),
+		assertEquals(TestUtils.getJsonListFromFile("planets_ref"),
 				getJsonListOfColl("planets"));
 	}
 	
@@ -106,7 +105,7 @@ public class DenormalizerTest {
 		
 		assertTrue(subject.denormalize(model));
 	
-		assertEquals(getJsonListFromFile("planets_embed"),
+		assertEquals(TestUtils.getJsonListFromFile("planets_embed"),
 				getJsonListOfColl("planets"));
 	}
 	
@@ -119,7 +118,7 @@ public class DenormalizerTest {
 		
 		assertTrue(subject.denormalize(model));
 	
-		assertEquals(getJsonListFromFile("planets_embed_multi"),
+		assertEquals(TestUtils.getJsonListFromFile("planets_embed_multi"),
 				getJsonListOfColl("planets"));
 	}
 	
@@ -134,11 +133,11 @@ public class DenormalizerTest {
 		
 		assertTrue(subject.denormalize(model));
 		
-		assertEquals(getJsonListFromFile("planets_embed"),
+		assertEquals(TestUtils.getJsonListFromFile("planets_embed"),
 				getJsonListOfColl("planets"));
-		assertEquals(getJsonListFromFile("organizations"),
+		assertEquals(TestUtils.getJsonListFromFile("organizations"),
 				getJsonListOfColl("organizations"));
-		assertEquals(getJsonListFromFile("moons"),
+		assertEquals(TestUtils.getJsonListFromFile("moons"),
 				getJsonListOfColl("moons"));
 	}
 	
@@ -155,9 +154,9 @@ public class DenormalizerTest {
 		
 		assertTrue(subject.denormalize(model));
 		
-		assertEquals(getJsonListFromFile("planets_embed"),
+		assertEquals(TestUtils.getJsonListFromFile("planets_embed"),
 				getJsonListOfColl("planets"));
-		assertEquals(getJsonListFromFile("organizations_one_to_many"),
+		assertEquals(TestUtils.getJsonListFromFile("organizations_one_to_many"),
 				getJsonListOfColl("organizations"));
 	}
 	
@@ -175,11 +174,11 @@ public class DenormalizerTest {
 		
 		assertTrue(subject.denormalize(model));
 		
-		assertEquals(getJsonListFromFile("organizations_many_to_many"),
+		assertEquals(TestUtils.getJsonListFromFile("organizations_many_to_many"),
 				getJsonListOfColl("organizations"));
-		assertEquals(getJsonListFromFile("planets_many_to_many"),
+		assertEquals(TestUtils.getJsonListFromFile("planets_many_to_many"),
 				getJsonListOfColl("planets"));
-		assertEquals(getJsonListFromFile("affiliations"),
+		assertEquals(TestUtils.getJsonListFromFile("affiliations"),
 				getJsonListOfColl("affiliations"));
 	}
 	
@@ -198,11 +197,11 @@ public class DenormalizerTest {
 		
 		assertTrue(subject.denormalize(model));
 		
-		assertEquals(getJsonListFromFile("organizations_many_to_many"),
+		assertEquals(TestUtils.getJsonListFromFile("organizations_many_to_many"),
 				getJsonListOfColl("organizations"));
-		assertEquals(getJsonListFromFile("planets_many_to_many_embed"),
+		assertEquals(TestUtils.getJsonListFromFile("planets_many_to_many_embed"),
 				getJsonListOfColl("planets"));
-		assertEquals(getJsonListFromFile("affiliations"),
+		assertEquals(TestUtils.getJsonListFromFile("affiliations"),
 				getJsonListOfColl("affiliations"));
 	}
 	
@@ -235,7 +234,7 @@ public class DenormalizerTest {
 		for(String colName : collections) {
 			MongoCollection<Document> col = db.getCollection(colName);
 			try(Stream<String> stream = Files.lines(
-					Paths.get(TEST_FILE_DIR + colName))) {
+					Paths.get(TestUtils.TEST_FILE_DIR + colName))) {
 				stream.forEach((String jsonDoc)
 						-> col.insertOne(Document.parse(jsonDoc)));
 			} catch (IOException e) {
@@ -255,16 +254,6 @@ public class DenormalizerTest {
 		List<String> list = new ArrayList<>();
 		for(String colName : collections) {
 			list.addAll(getJsonListOfColl(colName));
-		}
-		return list;
-	}
-	
-	private List<String> getJsonListFromFile(String filename) {
-		final List<String> list = new ArrayList<>();
-		try(Stream<String> stream = Files.lines(Paths.get(TEST_FILE_DIR + filename))) {
-			stream.forEach((String jsonDoc) -> list.add(Document.parse(jsonDoc).toJson()));
-		} catch (IOException e) {
-			e.printStackTrace();
 		}
 		return list;
 	}

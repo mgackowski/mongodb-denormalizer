@@ -4,7 +4,7 @@
 
 	<groupId>com.mgackowski</groupId>
 	<artifactId>mongodb-denormalizer</artifactId>
-	<version>18.2.22</version>
+	<version>18.2.27</version>
 	<packaging>jar</packaging>
 
 	<name>mongodb-denormalizer</name>

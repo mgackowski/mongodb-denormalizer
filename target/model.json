@@ -1,0 +1,18 @@
+{
+	"database": "my-db-name",
+	"collections" : [
+		{
+			"name" : "source-collection-name",
+			"joins" : [
+				{
+					"collection:" : "target-collection-name",
+					"onSource" : "foreign_id",
+					"onTarget" : "_id",
+					"as" : "newArrayName",
+					"reference" : "_id",
+					"embed" : ["optionalField", "optionalField", "etc..."]
+				}
+			]
+		}
+	]
+}

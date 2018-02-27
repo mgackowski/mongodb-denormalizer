@@ -18,6 +18,12 @@ public class DBModel {
 	private String dbName;
 	private List<CollModel> collections = new ArrayList<>();
 	
+	public DBModel() {}
+
+	public DBModel(String dbName) {
+		this.dbName = dbName;
+	}
+
 	public DBModel add(CollModel collection){
 		collections.add(collection);
 		return this;
